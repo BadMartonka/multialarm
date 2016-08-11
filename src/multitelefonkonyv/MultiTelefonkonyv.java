@@ -6,6 +6,7 @@
 package multitelefonkonyv;
 
 import alaposztaly.Kontakt;
+import felulet.kontaktFrame;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,8 +22,11 @@ public class MultiTelefonkonyv {
     /**
      * @param args the command line arguments
      */
+    
+    
     public static void main(String[] args) {
-        
+        kontaktFrame kontaktFrame = new kontaktFrame();
+        kontaktFrame.setVisible(true);
     }
     
     public Connection getConnection()
@@ -54,7 +58,7 @@ public class MultiTelefonkonyv {
             
             Kontakt kontakt;
              while (rs.next()) {                
-                kontakt = new Kontakt(rs.getString("nev"), rs.getString("varos"), rs.getString("szuletesnap"), rs.getInt("irszam"), rs.getInt("telefonszam"));
+                kontakt = new Kontakt(rs.getString("nev"), rs.getString("varos"), rs.getString("szuletesnap"), rs.getInt("irszam"), rs.getString("telefonszam"));
                 kontaktLista.add(kontakt);
             }
         } catch (Exception e) {

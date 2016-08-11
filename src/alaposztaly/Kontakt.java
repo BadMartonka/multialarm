@@ -11,10 +11,10 @@ package alaposztaly;
  */
 public class Kontakt {
     
-    private String nev,varos,szuletesnap;
-    private int irSzam,telszam;
+    private String nev,telszam,varos,szuletesnap;
+    private int irSzam;
 
-    public Kontakt(String nev, String varos, String szuletesnap, int irSzam, int telszam) {
+    public Kontakt(String nev, String varos, String szuletesnap, int irSzam, String telszam) {
         this.nev = nev;
         this.varos = varos;
         this.szuletesnap = szuletesnap;
@@ -38,7 +38,7 @@ public class Kontakt {
         return irSzam;
     }
 
-    public int getTelszam() {
+    public String getTelszam() {
         return telszam;
     }
     

@@ -22,7 +22,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnBeilleszt" min="-2" pref="111" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnMódosít" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Component id="btnModosit" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="btnTöröl" min="-2" pref="131" max="-2" attributes="0"/>
                   </Group>
@@ -88,7 +88,7 @@
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnBeilleszt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnMódosít" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnModosit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnTöröl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -142,12 +142,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBeillesztActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnM&#xf3;dos&#xed;t">
+    <Component class="javax.swing.JButton" name="btnModosit">
       <Properties>
         <Property name="text" type="java.lang.String" value="M&#xf3;dos&#xed;t"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnM&#xf3;dos&#xed;tActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModositActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnT&#xf6;r&#xf6;l">

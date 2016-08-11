@@ -52,7 +52,7 @@ public class kontaktPanel extends javax.swing.JPanel {
         txtIrSzam = new javax.swing.JTextField();
         txtVaros = new javax.swing.JTextField();
         btnBeilleszt = new javax.swing.JButton();
-        btnMódosít = new javax.swing.JButton();
+        btnModosit = new javax.swing.JButton();
         btnTöröl = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -85,10 +85,10 @@ public class kontaktPanel extends javax.swing.JPanel {
             }
         });
 
-        btnMódosít.setText("Módosít");
-        btnMódosít.addActionListener(new java.awt.event.ActionListener() {
+        btnModosit.setText("Módosít");
+        btnModosit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMódosítActionPerformed(evt);
+                btnModositActionPerformed(evt);
             }
         });
 
@@ -119,7 +119,7 @@ public class kontaktPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(btnBeilleszt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnMódosít, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnModosit, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(btnTöröl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -172,7 +172,7 @@ public class kontaktPanel extends javax.swing.JPanel {
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBeilleszt)
-                            .addComponent(btnMódosít)
+                            .addComponent(btnModosit)
                             .addComponent(btnTöröl))))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -193,8 +193,8 @@ public class kontaktPanel extends javax.swing.JPanel {
 
     private void btnBeillesztActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeillesztActionPerformed
       String query = "insert into multialarm(nev, telefonszam, szuletesnap, irSzam, varos) values \n" +
-              "('"+txtNev.getText()+"', "
-                +Integer.valueOf(txtTelSzam.getText())+", '"
+              "('"+txtNev.getText()+"', '"
+                +txtTelSzam.getText()+"', '"
                 +txtSzulNap.getText()+"', "
                 +Integer.valueOf(txtIrSzam.getText())+", '"
                 +txtVaros.getText()+"');";
@@ -202,16 +202,16 @@ public class kontaktPanel extends javax.swing.JPanel {
         sqlMuvelet(query, "Beillesztve");
     }//GEN-LAST:event_btnBeillesztActionPerformed
 
-    private void btnMódosítActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMódosítActionPerformed
+    private void btnModositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModositActionPerformed
         String query = "UPDATE multialarm SET(nev, telefonszam, szuletesnap, irSzam, varos)" +
-                "= ('"+txtNev.getText()+"')"
-                +Integer.valueOf(txtTelSzam.getText())+", '"
+                "= ('"+txtNev.getText()+"','"
+                +txtTelSzam.getText()+"', '"
                 +txtSzulNap.getText()+"', "
                 +Integer.valueOf(txtIrSzam.getText())+", '"
-                +txtVaros.getText()+"') WHERE nev = '"+txtNev.getText()+"'";
+                +txtVaros.getText()+"') WHERE nev = '"+txtNev.getText()+"';";
         
         sqlMuvelet(query, "Frissítve");
-    }//GEN-LAST:event_btnMódosítActionPerformed
+    }//GEN-LAST:event_btnModositActionPerformed
 
     private void btnTörölActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTörölActionPerformed
         String query = "DELETE FROM multialarm where nev = '"+txtNev.getText()+"'";
@@ -221,7 +221,7 @@ public class kontaktPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBeilleszt;
-    private javax.swing.JButton btnMódosít;
+    private javax.swing.JButton btnModosit;
     private javax.swing.JButton btnTöröl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -272,7 +272,7 @@ public void kontaktokTablabaIr() {
         ArrayList<Kontakt>kontaktLista = new ArrayList<>();
         Connection kapcsolat = kapcsolat();
         
-        String query = "SELECt * FROM multialarm";
+        String query = "SELECT * FROM multialarm";
         Statement st;
         ResultSet rs;
         
@@ -282,7 +282,7 @@ public void kontaktokTablabaIr() {
             
             Kontakt kontakt;
              while (rs.next()) {                
-                kontakt = new Kontakt(rs.getString("nev"), rs.getString("varos"), rs.getString("szuletesnap"), rs.getInt("irszam"), rs.getInt("telefonszam"));
+                kontakt = new Kontakt(rs.getString("nev"), rs.getString("varos"), rs.getString("szuletesnap"), rs.getInt("irszam"), rs.getString("telefonszam"));
                 kontaktLista.add(kontakt);
             }
         } catch (Exception e) {
